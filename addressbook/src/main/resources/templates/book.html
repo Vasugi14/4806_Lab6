@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Display Contents</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="${book.id}" />
+
+<table>
+    <tr th:each="buddy : ${book.contacts}">
+        <td th:text="${buddy.name}"></td>
+        <td th:text="${buddy.number}"></td>
+    </tr>
+</table>
+</body>
+</html>

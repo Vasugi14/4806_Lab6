@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Buddy!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="myView.js"></script>
+</head>
+<body>
+<h1>Address Book</h1>
+<form action="#" th:action="@{/add}" method="get">
+    Name: <input id ="name" type="text" name="name"></input>
+    Number: <input id="number" type="text" name="number"></input>
+    <noscript>Add:<input type="submit" value="Add Buddy"></input></noscript>
+    <noscript>Remove:<input type="submit" value="Remove Buddy" formaction="/remove"></input></noscript>
+    Add:<input id="add-buddy" type="button" value="Add Buddy" hidden="true"></input>
+    Remove:<input id="remove-buddy" type="button" value="Remove Buddy" hidden="true"></input>
+</form>
+
+<table>
+    <tr th:each="buddy : ${book.contacts}">
+        <td th:text="${buddy.name}"></td>
+        <td th:text="${buddy.number}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="frame" class="vasugiaddressbook.ABJFrame" init-method="init">
+        <property name="name"><value> Address Book </value></property>
+        <property name="panel"> <ref bean="panel"></ref></property>
+    </bean>
+
+    <bean id="book" class="vasugiaddressbook.AddressBook"/>
+
+    <bean id="panel" class="vasugiaddressbook.ABJPanel" init-method="init">
+        <property name="area"> <ref bean="area"/> </property>
+        <property name="button"> <ref bean="button"/> </property>
+        <property name="addressBook"> <ref bean="book"/> </property>
+    </bean>
+
+    <bean id="area" class="vasugiaddressbook.ABJTextArea"/>
+
+    <bean id="listener" class="vasugiaddressbook.ABActionListener">
+        <property name="addressBook"><ref bean="book"/></property>
+    </bean>
+
+    <bean id="button" class="vasugiaddressbook.ABJButton" init-method="init">
+        <property name="actionListener">
+            <ref bean = "listener"/>
+        </property>
+    </bean>
+
+</beans>
